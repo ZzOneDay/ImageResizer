@@ -1,26 +1,49 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main {
+
+    private static final String url = "jdbc:mysql://localhost:3306/skillbox?useUnicode=true&serverTimezone=UTC";
+    private static final String user = "root";
+    private static final String pass = "test1234";
+
+
+
+    private static Connection connection;
+    private static Statement statement;
+    private static ResultSet resultSet;
+
+
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/skillbox?useUnicode=true&serverTimezone=UTC";
-        String user = "root";
-        String pass = "test1234";
+        String query = "SELECT course_name, " +
+                "DateDIFF(max(subscription_date), min(subscription_date))/(count(student_name)*30) " +
+                "FROM skillbox.purchaselist " +
+                "GROUP BY course_name";
 
         try {
-            Connection connection = DriverManager.getConnection(url, user, pass);
+            connection = DriverManager.getConnection(url, user, pass);
 
-            Statement statement = connection.createStatement();
+            statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT course_name AS 'Название курса', datediff(max(subscription_date), min(subscription_date))/(count(student_name)*30) AS 'Среднее количество покупок в месяц' FROM skillbox.purchaselist group by course_name;");
+            resultSet = statement.executeQuery(query);
+            System.out.println("Connect opened...");
 
-            while(resultSet.next()) {
-                System.out.println(resultSet.getArray("Название курса") + " | " + resultSet.getString("Среднее количество покупок в месяц"));
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(1) + " | " + resultSet.getString(2));
             }
-        } catch (Exception e) {
+        }
+        catch (SQLException e){
             e.printStackTrace();
+        }
+        finally {
+            try {
+                connection.close();
+                statement.close();
+                resultSet.close();
+                System.out.println("Connect closed.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 }
