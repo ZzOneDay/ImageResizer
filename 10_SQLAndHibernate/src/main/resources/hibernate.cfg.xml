@@ -20,6 +20,9 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">validate</property>
 
-        <mapping class="Course"></mapping>
+        <mapping class="table.Course"></mapping>
+        <mapping class="table.PurchaseList"></mapping>
+
+
     </session-factory>
 </hibernate-configuration>

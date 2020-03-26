@@ -11,10 +11,9 @@ public class ConnectorToMySQL {
     private static Metadata metadata = new MetadataSources(registry).getMetadataBuilder().build();
     private static SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
 
-    public static ConnectorToMySQL makeConnect () {
+    public static ConnectorToMySQL makeConnect() {
         return connectorToMySQL;
     }
-
 
     public SessionFactory getSessionFactory() {
         return sessionFactory;

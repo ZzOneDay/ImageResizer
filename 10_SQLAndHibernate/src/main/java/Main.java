@@ -1,5 +1,7 @@
+import table.Course;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import table.PurchaseList;
 
 
 public class Main {
@@ -13,6 +15,8 @@ public class Main {
 
         Course course = session.get(Course.class, 1);
         System.out.println(course.getName());
+        PurchaseList purchaseList = session.get(PurchaseList.class, 1);
+        System.out.println(purchaseList.getSubscriptionDate());
     }
 }
 
