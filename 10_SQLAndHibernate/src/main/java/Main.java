@@ -3,6 +3,7 @@ import table.Course;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import table.CourseType;
+import table.Teacher;
 
 
 public class Main {
@@ -15,6 +16,12 @@ public class Main {
         Session session = sessionFactory.openSession();
 
         Transaction transaction = session.beginTransaction();
+
+        Course course = session.get(Course.class,1);
+        System.out.println(course.getTeacher().getName());
+
+
+
 //        Создаем новый курс.
 //        Course course = getNewCourse("Новый новый курс", CourseType.DESIGN,1);
 //        session.save(course);
@@ -32,12 +39,12 @@ public class Main {
         transaction.commit();
     }
 
-    private static Course getNewCourse(String name, CourseType courseType, int teacherId) {
-        Course course = new Course();
-        course.setName(name);
-        course.setType(courseType);
-        course.setTeacherId(teacherId);
-        return course;
-    }
+//    private static Course getNewCourse(String name, CourseType courseType, int teacherId) {
+//        Course course = new Course();
+//        course.setName(name);
+//        course.setType(courseType);
+//        course.setTeacherId(teacherId);
+//        return course;
+//    }
 }
 

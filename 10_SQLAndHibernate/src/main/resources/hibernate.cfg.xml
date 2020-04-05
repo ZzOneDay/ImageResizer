@@ -21,6 +21,7 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <mapping class="table.Course"></mapping>
+        <mapping class="table.Teacher"></mapping>
 
 
     </session-factory>
