@@ -18,4 +18,10 @@ public class ConnectorToMySQL {
     public SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+
+    public static void closeConnect() {
+        sessionFactory.close();
+        registry.close();
+        System.out.println("ConnectToMySQL is closed");
+    }
 }

@@ -3,7 +3,11 @@ import table.Course;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import table.CourseType;
+import table.Student;
 import table.Teacher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -18,7 +22,10 @@ public class Main {
         Transaction transaction = session.beginTransaction();
 
         Course course = session.get(Course.class,1);
-        System.out.println(course.getTeacher().getName());
+        List<Student> students = course.getStudentList();
+        for (Student student : students) {
+            System.out.println(student.getName() + " " + student.getRegistrationDate());
+        }
 
 
 
@@ -37,13 +44,15 @@ public class Main {
 //        session.delete(course);
 
         transaction.commit();
+
+        ConnectorToMySQL.closeConnect();
     }
 
 //    private static Course getNewCourse(String name, CourseType courseType, int teacherId) {
 //        Course course = new Course();
 //        course.setName(name);
 //        course.setType(courseType);
-//        course.setTeacherId(teacherId);
+//        course.setTeacherId(teacherId); //Теперь работает через Teacher teacher;
 //        return course;
 //    }
 }

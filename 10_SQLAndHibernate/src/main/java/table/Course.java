@@ -1,6 +1,7 @@
 package table;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Courses")
@@ -30,6 +31,14 @@ public class Course {
 
     @Column(name = "price_per_hour")
     private float pricePerHour;
+
+    @ManyToMany (cascade = CascadeType.ALL)
+    @JoinTable(name = "subscriptions",
+            joinColumns = {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn(name = "student_id")})
+    private List<Student> studentList;
+
+
 
     public int getId() {
         return id;
@@ -101,6 +110,15 @@ public class Course {
 
     public void setPricePerHour(float pricePerHour) {
         this.pricePerHour = pricePerHour;
+    }
+
+
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 
 }

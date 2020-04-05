@@ -22,6 +22,7 @@
 
         <mapping class="table.Course"></mapping>
         <mapping class="table.Teacher"></mapping>
+        <mapping class="table.Student"></mapping>
 
 
     </session-factory>
