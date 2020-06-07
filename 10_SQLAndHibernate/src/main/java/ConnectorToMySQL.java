@@ -5,17 +5,29 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class ConnectorToMySQL {
-    private static ConnectorToMySQL connectorToMySQL = new ConnectorToMySQL();
-    private static StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-            .configure("hibernate.cfg.xml").build();
-    private static Metadata metadata = new MetadataSources(registry).getMetadataBuilder().build();
-    private static SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
+    private static ConnectorToMySQL connectorToMySQL;
+    private static StandardServiceRegistry registry;
+    private static Metadata metadata;
+    private static SessionFactory sessionFactory;
 
     public static ConnectorToMySQL makeConnect() {
+        if (connectorToMySQL == null) {
+            connectorToMySQL = new ConnectorToMySQL();
+        }
+        if (registry == null) {
+            registry = new StandardServiceRegistryBuilder()
+                    .configure("hibernate.cfg.xml").build();
+        }
+        if (metadata == null) {
+            metadata = new MetadataSources(registry).getMetadataBuilder().build();
+        }
         return connectorToMySQL;
     }
 
     public SessionFactory getSessionFactory() {
+        if (sessionFactory == null) {
+            sessionFactory = metadata.getSessionFactoryBuilder().build();
+        }
         return sessionFactory;
     }
 
