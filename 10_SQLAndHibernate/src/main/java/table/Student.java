@@ -3,6 +3,7 @@ package table;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "students")
@@ -49,4 +50,18 @@ public class Student {
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
+
+    public List<Course> getCoursesList() {
+        return coursesList;
+    }
+
+    public void setCoursesList(List<Course> coursesList) {
+        this.coursesList = coursesList;
+    }
+
+    @ManyToMany (cascade = CascadeType.ALL)
+    @JoinTable(name = "subscriptions",
+            joinColumns = {@JoinColumn(name = "student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id")})
+    private List<Course> coursesList;
 }

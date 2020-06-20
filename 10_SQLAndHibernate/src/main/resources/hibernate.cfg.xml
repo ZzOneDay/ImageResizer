@@ -14,7 +14,7 @@
         <!-- Select our SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <!-- Echo the SQL to stdout If you SET TRUE - SHOW result to SQL -->
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <!-- Set the current session context -->
         <property name="current_session_context_class">thread</property>
         <!-- Drop and re-create the database schema on startup -->
@@ -23,6 +23,7 @@
         <mapping class="table.Course"></mapping>
         <mapping class="table.Teacher"></mapping>
         <mapping class="table.Student"></mapping>
+        <mapping class="table.Subscriptions"></mapping>
 
 
     </session-factory>

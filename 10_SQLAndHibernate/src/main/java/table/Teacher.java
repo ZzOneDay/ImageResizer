@@ -1,6 +1,7 @@
 package table;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "teachers")
@@ -15,6 +16,12 @@ public class Teacher {
     private int salary;
 
     private int age;
+
+    @OneToMany (cascade = CascadeType.ALL)
+    @JoinTable(name = "courses",
+            joinColumns = {@JoinColumn(name = "teacher_id")},
+            inverseJoinColumns = {@JoinColumn(name = "id")})
+    private List<Course> coursesList;
 
     public int getId() {
         return id;
@@ -48,6 +55,12 @@ public class Teacher {
         this.age = age;
     }
 
+    public List<Course> getCoursesList() {
+        return coursesList;
+    }
 
+    public void setCoursesList(List<Course> coursesList) {
+        this.coursesList = coursesList;
+    }
 
 }

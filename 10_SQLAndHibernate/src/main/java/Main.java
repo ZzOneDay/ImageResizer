@@ -1,10 +1,7 @@
 import org.hibernate.Transaction;
-import table.Course;
+import table.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import table.CourseType;
-import table.Student;
-import table.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +18,28 @@ public class Main {
 
         Transaction transaction = session.beginTransaction();
 
-        Course course = session.get(Course.class,1);
-        List<Student> students = course.getStudentList();
-        for (Student student : students) {
-            System.out.println(student.getName() + " " + student.getRegistrationDate());
+
+        Teacher teacher = session.get(Teacher.class, 1);
+        System.out.println(teacher.getName());
+        for (Course course : teacher.getCoursesList()) {
+            System.out.println(course.getName());
         }
 
+//        System.out.println("GET COURSE -> LIST STUDENT");
+//        Course anyCourse = session.get(Course.class,1);
+//        System.out.println("COURSE NAME IS " + anyCourse.getName());
+//        List<Student> students = anyCourse.getStudentList();
+//        for (Student student : students) {
+//            System.out.println(student.getName() + " " + student.getRegistrationDate());
+//        }
+//
+//        System.out.println("GET STUDENT -> LIST COURSE");
+//        Student anyStudent = session.get(Student.class, 1);
+//        System.out.println("STUDENT NAME IS " + anyStudent.getName());
+//        List<Course> courses = anyStudent.getCoursesList();
+//        for (Course course : courses) {
+//            System.out.println(course.getName());
+//        }
 
 
 //        Создаем новый курс.
