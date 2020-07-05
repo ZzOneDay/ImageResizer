@@ -1,6 +1,7 @@
 package table;
 
 
+import CompositeKey.KeyStudentIdCourseId;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,7 +26,7 @@ public class Student {
     @Column(name = "registration_date")
     private Date registrationDate;
 
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "subscriptions",
             joinColumns = {@JoinColumn(name = "student_id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id")})

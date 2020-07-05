@@ -11,6 +11,8 @@ import java.util.Date;
 @Getter
 
 @Entity
+
+
 public class Subscriptions {
     @EmbeddedId
     private KeyStudentIdCourseId keyStudentIdCourseId;

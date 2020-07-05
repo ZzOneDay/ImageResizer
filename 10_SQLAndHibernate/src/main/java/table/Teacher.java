@@ -20,7 +20,7 @@ public class Teacher {
     private int salary;
     private int age;
 
-    @OneToMany (cascade = CascadeType.ALL)
+    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "courses",
             joinColumns = {@JoinColumn(name = "teacher_id")},
             inverseJoinColumns = {@JoinColumn(name = "id")})

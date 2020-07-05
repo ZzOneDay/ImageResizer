@@ -1,9 +1,11 @@
 package CompositeKey;
 
 import lombok.Data;
+import table.Course;
+import table.Student;
+import table.Teacher;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
@@ -12,6 +14,7 @@ import java.io.Serializable;
 public class KeyStudentIdCourseId implements Serializable {
     @Column(name = "student_id")
     private int studentId;
+
     @Column(name = "course_id")
     private int courseId;
 }

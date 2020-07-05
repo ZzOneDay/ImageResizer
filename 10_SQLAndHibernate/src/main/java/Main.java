@@ -1,11 +1,4 @@
-import CompositeKey.KeyStudentIdCourseId;
-import org.hibernate.Transaction;
-import table.*;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.*;
 
 
 public class Main {
@@ -19,55 +12,22 @@ public class Main {
 
         Transaction transaction = session.beginTransaction();
 
-
-        Teacher teacher = session.get(Teacher.class, 1);
-        System.out.println(teacher.getName());
-        for (Course course : teacher.getCoursesList()) {
-            System.out.println(course.getName());
-        }
-
-//        System.out.println("GET COURSE -> LIST STUDENT");
-//        Course anyCourse = session.get(Course.class,1);
-//        System.out.println("COURSE NAME IS " + anyCourse.getName());
-//        List<Student> students = anyCourse.getStudentList();
-//        for (Student student : students) {
-//            System.out.println(student.getName() + " " + student.getRegistrationDate());
-//        }
-//
-//        System.out.println("GET STUDENT -> LIST COURSE");
-//        Student anyStudent = session.get(Student.class, 1);
-//        System.out.println("STUDENT NAME IS " + anyStudent.getName());
-//        List<Course> courses = anyStudent.getCoursesList();
-//        for (Course course : courses) {
-//            System.out.println(course.getName());
+//        Query query = session.createQuery("from Subscriptions");
+//        List list = query.getResultList();
+//        for (Object o : list) {
+//            Subscriptions subscriptions = (Subscriptions)  o;
 //        }
 
-
-//        Создаем новый курс.
-//        Course course = getNewCourse("Новый новый курс", CourseType.DESIGN,1);
-//        session.save(course);
-
-//        Редактируем курс.
-//        Course course = session.get(Course.class, 50);
-//        course.setName("Актуальный курс");
-//        session.save(course);
-
-//        Удаляем курс по ID
-//        Course course = session.get(Course.class, 48); //id не по порядку создаются
-//        System.out.println(course.getName());
-//        session.delete(course);
+        TestQueryHQL.printSubscriptions(session);
+        TestQueryHQL.printCoursesName(session);
+        TestQueryHQL.printTeachersName(session);
+        TestQueryHQL.printStudentsName(session);
 
         transaction.commit();
 
         ConnectorToMySQL.closeConnect();
     }
 
-//    private static Course getNewCourse(String name, CourseType courseType, int teacherId) {
-//        Course course = new Course();
-//        course.setName(name);
-//        course.setType(courseType);
-//        course.setTeacherId(teacherId); //Теперь работает через Teacher teacher;
-//        return course;
-//    }
+
 }
 
