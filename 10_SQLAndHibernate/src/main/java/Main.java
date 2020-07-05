@@ -1,3 +1,4 @@
+import CompositeKey.KeyStudentIdCourseId;
 import org.hibernate.Transaction;
 import table.*;
 import org.hibernate.Session;
