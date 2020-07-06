@@ -1,20 +1,21 @@
 package CompositeKey;
 
-import lombok.Data;
+import lombok.*;
 import table.Course;
 import table.Student;
-import table.Teacher;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Data
+//@Data
+@ToString
+@EqualsAndHashCode
+@Getter
 
 @Embeddable
 public class KeyStudentIdCourseId implements Serializable {
-    @Column(name = "student_id")
-    private int studentId;
+    @OneToOne
+    private Student student;
 
-    @Column(name = "course_id")
-    private int courseId;
+    @OneToOne
+    private Course course;
 }

@@ -41,14 +41,10 @@ public class TestQueryHQL {
         List list = query.getResultList();
         for (Object o : list) {
             Subscriptions subscriptions = (Subscriptions) o;
-            int courseId = subscriptions.getKeyStudentIdCourseId().getCourseId();
-            int studentId = subscriptions.getKeyStudentIdCourseId().getStudentId();
-            Course course = session.get(Course.class,courseId);
-            Student student = session.get(Student.class,studentId);
+            Course course = subscriptions.getKeyStudentIdCourseId().getCourse();
+            Student student = subscriptions.getKeyStudentIdCourseId().getStudent();
             System.out.println(student.getName() + " bought " + course.getName()
                     + ", " +subscriptions.getSubscriptionDate());
         }
     }
-
-
 }

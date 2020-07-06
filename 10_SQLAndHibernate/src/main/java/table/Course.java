@@ -1,18 +1,14 @@
 package table;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.Fetch;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 
 @Entity
 @Table(name = "Courses")
-
 
 public class Course {
     @Id
@@ -40,7 +36,7 @@ public class Course {
     @Column(name = "price_per_hour")
     private float pricePerHour;
 
-    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "subscriptions",
             joinColumns = {@JoinColumn(name = "course_id")},
             inverseJoinColumns = {@JoinColumn(name = "student_id")})

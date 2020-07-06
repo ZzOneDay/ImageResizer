@@ -1,18 +1,13 @@
 package table;
 
 import CompositeKey.KeyStudentIdCourseId;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
-@Setter
-@Getter
+@Data
 
 @Entity
-
-
 public class Subscriptions {
     @EmbeddedId
     private KeyStudentIdCourseId keyStudentIdCourseId;
