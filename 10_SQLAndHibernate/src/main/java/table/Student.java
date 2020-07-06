@@ -1,9 +1,11 @@
 package table;
 
-
+import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+@Data
 
 @Entity
 @Table(name = "students")
@@ -19,47 +21,7 @@ public class Student {
     @Column(name = "registration_date")
     private Date registrationDate;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public List<Course> getCoursesList() {
-        return coursesList;
-    }
-
-    public void setCoursesList(List<Course> coursesList) {
-        this.coursesList = coursesList;
-    }
-
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "subscriptions",
             joinColumns = {@JoinColumn(name = "student_id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id")})
