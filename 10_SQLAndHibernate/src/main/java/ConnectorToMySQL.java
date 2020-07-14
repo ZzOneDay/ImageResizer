@@ -11,6 +11,7 @@ public class ConnectorToMySQL {
     private static SessionFactory sessionFactory;
 
     public static ConnectorToMySQL makeConnect() {
+        LogControl.checkLogFile();
         if (connectorToMySQL == null) {
             connectorToMySQL = new ConnectorToMySQL();
         }
@@ -21,6 +22,8 @@ public class ConnectorToMySQL {
         if (metadata == null) {
             metadata = new MetadataSources(registry).getMetadataBuilder().build();
         }
+
+        System.out.println("ConnectToMySQL is opened");
         return connectorToMySQL;
     }
 
@@ -36,4 +39,6 @@ public class ConnectorToMySQL {
         registry.close();
         System.out.println("ConnectToMySQL is closed");
     }
+
+
 }

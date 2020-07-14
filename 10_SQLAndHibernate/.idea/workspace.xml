@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="32ec30d2-9cd2-425c-abe6-9f7033a24f79" name="Default Changelist" comment="" />
+    <list id="39dce197-6f0d-4da5-97b3-77214d9b63aa" name="Connected Log4j2 for Hibernate. Configure, console only for Error." comment="" />
+    <list id="9e95d609-8542-4d43-be19-d3df53953b68" name="Created connect in class Teacher, OneToMany." comment="Created connect in class Teacher, OneToMany.&#10;One teacher can has some courses.&#10;And now, we can get ListCourses, that teacher has.">
+      <changelist_data name="ZzOneDay" email="azminseo@gmail.com" date="1592131544000" />
+    </list>
+    <list id="bb8f490d-1047-4333-9902-d544cbf1a0e5" name="Embeddable Key has some connect &quot;one-to-one&quot; for Student and Course." comment="Embeddable Key has some connect &quot;one-to-one&quot; for Student and Course.">
+      <changelist_data name="ZzOneDay" email="azminseo@gmail.com" date="1594073033000" />
+    </list>
+    <list id="2066d6db-5cf6-4159-bf4a-5992cdbd13aa" name="Revert &quot;Connected Log4j2 for Hibernate. Configure, console only for Error.&quot;" comment="Revert &quot;Connected Log4j2 for Hibernate. Configure, console only for Error.&quot;&#10;&#10;This reverts commit 5a301621" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1Zcu55GrsBA0h0JvJtabSXB4AV9" />
+  <component name="PropertiesComponent">
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\Skillbox2\java_basics\10_SQLAndHibernate\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="10_SQLAndHibernate" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32ec30d2-9cd2-425c-abe6-9f7033a24f79" name="Default Changelist" comment="" />
+      <changelist id="39dce197-6f0d-4da5-97b3-77214d9b63aa" name="Connected Log4j2 for Hibernate. Configure, console only for Error." comment="" />
+      <created>1585150516602</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585150516602</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Created connect Course Table to Teachers Table by OneToMany.">
+      <created>1586076295432</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586076295432</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Created connect Course Table to Students Table. Used ManyToMany by Subscription table. Created method that close connect to mysql.">
+      <created>1586081877809</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586081877809</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created connect in class Teacher, OneToMany. &#10;One teacher can has some courses. &#10;And now, we can get ListCourses, that teacher has.">
+      <created>1592131544384</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592131544384</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Connected Log4j2 for Hibernate. Configure, console only for Error.">
+      <created>1592658537024</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592658537024</updated>
+    </task>
+    <task id="LOCAL-00005" summary="The project has been updated  &quot;Lombok&quot;.">
+      <created>1593948040835</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1593948040835</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Created TestQueryHSQL for learned HQL and was created some examples">
+      <created>1593957694580</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1593957694580</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Embeddable Key has some connect &quot;one-to-one&quot; for Student and Course.">
+      <created>1594073033944</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1594073033944</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Created linkedPurchaseList this CompositeKey. LogControl.">
+      <created>1594341662021</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1594341662021</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated LinkPurchaseList, Key use Course/Student. &#10;Reduced count of query.">
+      <created>1594499564362</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1594499564362</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$/.." />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created connect Course Table to Teachers Table by OneToMany." />
+    <MESSAGE value="Created connect Course Table to Students Table. Used ManyToMany by Subscription table. Created method that close connect to mysql." />
+    <MESSAGE value="Created connect in class Teacher, OneToMany. &#10;One teacher can has some courses. &#10;And now, we can get ListCourses, that teacher has." />
+    <MESSAGE value="Connected Log4j2 for Hibernate. Configure, console only for Error." />
+    <MESSAGE value="The project has been updated  &quot;Lombok&quot;." />
+    <MESSAGE value="Created TestQueryHSQL for learned HQL and was created some examples" />
+    <MESSAGE value="Embeddable Key has some connect &quot;one-to-one&quot; for Student and Course." />
+    <MESSAGE value="Created linkedPurchaseList this CompositeKey. LogControl." />
+    <MESSAGE value="Updated LinkPurchaseList, Key use Course/Student. &#10;Reduced count of query." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated LinkPurchaseList, Key use Course/Student. &#10;Reduced count of query." />
+  </component>
+</project>
