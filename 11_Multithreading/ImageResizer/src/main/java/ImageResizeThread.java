@@ -4,14 +4,12 @@ import org.imgscalr.Scalr;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ImageResizeThread extends Thread {
-    Result result;
-    ConcurrentLinkedQueue concurrentLinkedQueue;
-    long start;
+    private Result result;
+    private ConcurrentLinkedQueue concurrentLinkedQueue;
+    private long start;
 
     public ImageResizeThread(Result result, ConcurrentLinkedQueue concurrentLinkedQueue, long start) {
         this.result = result;
@@ -22,10 +20,11 @@ public class ImageResizeThread extends Thread {
     @Override
     public void run() {
         try {
-                Iterator<File> files = concurrentLinkedQueue.iterator();
-                while (files.hasNext()) {
-                    File file = files.next();
+                while (!concurrentLinkedQueue.isEmpty()) {
+                    File file = (File) concurrentLinkedQueue.poll();
                     BufferedImage image = ImageIO.read(file);
+
+                    //System.out.println("FILE " + file.getName() + "THREAD " + Thread.currentThread().getName());
 
                     int maxSizeOldImage = Math.max(image.getHeight(), image.getWidth());
                     int newMaxSizeImage = maxSizeOldImage * ((int) Math.round(1 - result.getCOMPRESSION() * 0.01));

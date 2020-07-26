@@ -27,9 +27,11 @@ public class Main {
             long start = System.currentTimeMillis();
             File[] files = dirForRead.listFiles();
             ConcurrentLinkedQueue concurrentLinkedQueue = new ConcurrentLinkedQueue(Arrays.asList(files));
-            ArrayList<ImageResizeThread> imageResizeThreads = new ArrayList<>(CORE_COUNT);
 
-            for (int i = 0; i < CORE_COUNT; i++) {
+            int needThreads = Math.min(concurrentLinkedQueue.size(), CORE_COUNT);
+            ArrayList<ImageResizeThread> imageResizeThreads = new ArrayList<>(needThreads);
+
+            for (int i = 0; i < needThreads; i++) {
                 ImageResizeThread imageResizeThread = new ImageResizeThread(result, concurrentLinkedQueue, start);
                 imageResizeThreads.add(imageResizeThread);
                 imageResizeThread.start();
