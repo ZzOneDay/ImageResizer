@@ -1,4 +1,4 @@
-import core.Result;
+import core.ResizeConfig;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;
@@ -7,35 +7,32 @@ import java.io.File;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ImageResizeThread extends Thread {
-    private Result result;
-    private ConcurrentLinkedQueue concurrentLinkedQueue;
-    private long start;
+    private final ResizeConfig resizeConfig;
+    private final ConcurrentLinkedQueue<File> concurrentLinkedQueue;
 
-    public ImageResizeThread(Result result, ConcurrentLinkedQueue concurrentLinkedQueue, long start) {
-        this.result = result;
+    public ImageResizeThread(ResizeConfig resizeConfig, ConcurrentLinkedQueue<File> concurrentLinkedQueue) {
+        this.resizeConfig = resizeConfig;
         this.concurrentLinkedQueue = concurrentLinkedQueue;
-        this.start = start;
     }
 
     @Override
     public void run() {
         try {
                 while (!concurrentLinkedQueue.isEmpty()) {
-                    File file = (File) concurrentLinkedQueue.poll();
+                    File file = concurrentLinkedQueue.poll();
                     BufferedImage image = ImageIO.read(file);
-
-                    //System.out.println("FILE " + file.getName() + "THREAD " + Thread.currentThread().getName());
+                    System.out.println("RESIZE: " + file.getName());
 
                     int maxSizeOldImage = Math.max(image.getHeight(), image.getWidth());
-                    int newMaxSizeImage = maxSizeOldImage * ((int) Math.round(1 - result.getCOMPRESSION() * 0.01));
+                    int newMaxSizeImage = maxSizeOldImage * ((int) Math.round(1 - resizeConfig.getCOMPRESSION() * 0.01));
 
                     BufferedImage newImage = Scalr.resize(image, newMaxSizeImage);
-                    File newFile = new File(result.getDIR_FOR_WRITE() + "/" + file.getName());
+                    File newFile = new File(resizeConfig.getDIR_FOR_WRITE().getPath() + "/" + file.getName());
                     ImageIO.write(newImage, "jpg", newFile);
                 }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        System.out.println(System.currentTimeMillis() - start + "ms");
+//        System.out.println(System.currentTimeMillis() - start + "ms");
     }
 }
