@@ -155,8 +155,91 @@ public class BankTest {
                 bank.transfer(accountFROM.getAccNumber(), accountTO1.getAccNumber(), 50001);
                 bank.transfer(accountFROM.getAccNumber(), accountTO2.getAccNumber(), 50001);
             } catch (ErrorThisAccount errorThisAccount) {
-                Assert.assertEquals(accountFROM.getMoney()+accountTO1.getMoney()+accountTO2.getMoney(), startMoney);
+                Assert.assertEquals(accountFROM.getMoney() + accountTO1.getMoney() + accountTO2.getMoney(), startMoney);
             }
         }
+    }
+
+    @Test
+    public void superTestTransferForTask() {
+        Bank bank = new Bank();
+        HashMap<String, Account> accountsMap = bank.getAccounts();
+        ArrayList<Account> accountsList = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            Account account = new Account(10000, "ACCOUNT" + i);
+            accountsList.add(account);
+            accountsMap.put(account.getAccNumber(), account);
+        }
+
+        int sum1 = 0;
+        for (Account account : accountsList) {
+            sum1 += account.getMoney();
+        }
+
+
+        ArrayList<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new TestThreadTransactionManyToMany(accountsList, bank, 1));
+            threads.add(thread);
+            thread.start();
+        }
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        int sum2 = 0;
+        for (Account account : accountsList) {
+            sum2 += account.getMoney();
+        }
+
+        Assert.assertEquals(sum1, sum2);
+    }
+
+    @Test()
+    public void superTest2TransferForTask() {
+        //Слишком медленный тест
+        Bank bank = new Bank();
+        HashMap<String, Account> accountsMap = bank.getAccounts();
+        ArrayList<Account> accountsList = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+            Account account = new Account(1000000, "ACCOUNT" + i);
+            accountsList.add(account);
+            accountsMap.put(account.getAccNumber(), account);
+        }
+
+        int sum1 = 0;
+        for (Account account : accountsList) {
+            sum1 += account.getMoney();
+        }
+
+
+        ArrayList<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new TestThreadTransactionManyToMany(accountsList, bank, 50001));
+            threads.add(thread);
+            thread.start();
+        }
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        int sum2 = 0;
+        for (Account account : accountsList) {
+            sum2 += account.getMoney();
+        }
+
+        Assert.assertEquals(sum1, sum2);
     }
 }

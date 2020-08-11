@@ -35,16 +35,14 @@ public class Account
     }
 
     public long getMoney() {
-        synchronized (this) {
-            return money;
-        }
+        return money;
     }
 
-    public synchronized void addMoney (Long amount) {
+    public void addMoney (Long amount) {
         money = money + amount;
     }
 
-    public synchronized void deductMoney (Long amount) throws NotEnoughMoney {
+    public void deductMoney (Long amount) throws NotEnoughMoney {
         if (money >= amount) {
             money = money - amount;
         }
@@ -52,6 +50,7 @@ public class Account
             throw new NotEnoughMoney();
         }
     }
+
 
 
 

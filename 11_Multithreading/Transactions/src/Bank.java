@@ -32,13 +32,24 @@ public class Bank {
             throw new ErrorThisAccount();
         }
 
-        if (!accountFrom.isBlock() && !accountTo.isBlock()) {
-            accountFrom.deductMoney(amount);
-            accountTo.addMoney(amount);
-        } else {
-            throw new AccountIsBlock();
+        synchronized (accounts.get(fromAccountNum)) {
+            if (!accountFrom.isBlock()) {
+                accountFrom.deductMoney(amount);
+            } else {
+                throw new AccountIsBlock();
+            }
         }
-        System.out.println("Транзакция прошла успешно");
+
+        synchronized (accounts.get(toAccountNum)) {
+            if (!accountTo.isBlock()) {
+                accountTo.addMoney(amount);
+            } else {
+                accountFrom.addMoney(amount);
+                throw new AccountIsBlock();
+            }
+        }
+        //System.out.println("Транзакция прошла успешно");
+
         if (amount > 50000) {
             System.out.println("Операция вызывает сомнения, счета заблокированы");
             accountFrom.blockAccount();
